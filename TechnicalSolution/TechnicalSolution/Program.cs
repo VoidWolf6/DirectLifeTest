@@ -20,11 +20,11 @@
 
             List<string> sorted = unsorted.OrderBy(x => x).ToList(); //sorts the list into alphabetical order
 
-            //test two, to see if the array has been sorted. 
+            //test two, to see if the list has been sorted. 
             Console.WriteLine(sorted[0]);
 
             int testTotal = 0, subTotal = 0, finalTotal = 0;
-            foreach (char each in sorted[0]) //gathers the alphabetical value of the first item in the sorted array
+            foreach (char each in sorted[0]) //gathers the alphabetical value of the first item in the alphabetically sorted list
             {
                 testTotal += each - 64; //offset is decreased by 1, to make sure the values are correct e.g. that 'A' returns 1
             }
@@ -34,9 +34,9 @@
 
             for (int i = 0; i < sorted.Count; i++)
             {
-                foreach (char letter in sorted[i])
+                foreach (char letter in sorted[i])//each letter is already set as a character
                 {
-                    subTotal += letter - 64; //gets the value for each letter in each word, 
+                    subTotal += letter - 64; //gets the value for each letter in each word 
                 }
                 //test four, to see if the function is working by testing the given example
                 if (i == 937)
