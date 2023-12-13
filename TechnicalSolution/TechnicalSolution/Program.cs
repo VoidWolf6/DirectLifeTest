@@ -4,15 +4,16 @@
     {
         static void Main(string[] args)
         {
+            List<string[]> unsorted = new List<string[]>();
             var lines = File.ReadAllLines("names.txt"); //read the text file into the program
 
             for (int i = 0; i < lines.Length; i++) //convert the lines into an array to manipulate and read. 
             {
-                var unsorted = lines[i].Split(' ');
+                unsorted[i] = lines[i].Split(' ');
             }
 
             //test one, to make sure that the array is read correctly. 
-            Console.WriteLine(lines[0]);
+            Console.WriteLine(unsorted[0]);
 
             //test two, to see if the array has been sorted. 
 
