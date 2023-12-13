@@ -9,13 +9,13 @@
             string lines = File.ReadAllText("names.txt").ToString(); //read the text file into the program as a string
             var results = lines.Split(","); //splits into an array, divided by the commas
 
-            //convert the lines into an array to manipulate and read.
+            //convert the lines into a list to manipulate and read.
             for (int i = 0; i < results.Length; i++)
             {
                 unsorted.Add(results[i].Replace("\"", "")); //this removes the unneeded speech marks
             }
 
-            //test one, to make sure that the array is read correctly. 
+            //test one, to make sure that the unsorted list is read correctly. 
             Console.WriteLine(unsorted[0]);
 
             List<string> sorted = unsorted.OrderBy(x => x).ToList(); //sorts the list into alphabetical order
