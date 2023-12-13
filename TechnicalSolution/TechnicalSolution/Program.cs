@@ -1,11 +1,7 @@
-﻿using System;
-using System.Security.Cryptography.X509Certificates;
-
-namespace TechnicalSolution
+﻿namespace TechnicalSolution
 {
     internal class Program
-    {
-       
+    {      
         static void Main(string[] args)
         {
             //65 is the offset for capital A
@@ -24,7 +20,6 @@ namespace TechnicalSolution
 
             List<string> sorted = unsorted.OrderBy(x => x).ToList(); //sorts the list into alphabetical order
 
-
             //test two, to see if the array has been sorted. 
             Console.WriteLine(sorted[0]);
 
@@ -41,17 +36,18 @@ namespace TechnicalSolution
             {
                 foreach (char letter in sorted[i])
                 {
-                    subTotal += letter - 64;
+                    subTotal += letter - 64; //gets the value for each letter in each word, 
+                }
+                //test four, to see if the function is working by testing the given example
+                if (i == 937)
+                {
+                    Console.Write(sorted[i] + " ");
+                    Console.WriteLine(subTotal);
                 }
 
                 finalTotal += subTotal * (i + 1); //multiplies the subtotal of each word by its position, with 1 added as i is initialised to 0
-                subTotal = 0;
-
-                //test four, to see if the function is working by testing the first six words
-                if (i == 5)
-                {
-                    Console.WriteLine(finalTotal);
-                }
+                subTotal = 0; //sets a new subtotal after each loop
+            
             }
 
             //delivers the final total of the array
