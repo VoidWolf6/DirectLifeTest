@@ -1,22 +1,36 @@
-﻿namespace TechnicalSolution
+﻿using System;
+using System.Security.Cryptography.X509Certificates;
+
+namespace TechnicalSolution
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            List<string[]> unsorted = new List<string[]>();
-            var lines = File.ReadAllLines("names.txt"); //read the text file into the program
+            List<string> unsorted = new List<string>();
+            string lines = File.ReadAllText(@"names.txt").ToString(); //read the text file into the program as a string
+            var results = lines.Split(","); //splits into an array, divided by the commas
 
-            for (int i = 0; i < lines.Length; i++) //convert the lines into an array to manipulate and read. 
+            //convert the lines into an array to manipulate and read.
+            for (int i = 0; i < results.Length; i++)
             {
-                unsorted[i] = lines[i].Split(' ');
+                unsorted.Add(results[i].Replace("\"", "")); //this removes the unneeded speech marks
             }
 
             //test one, to make sure that the array is read correctly. 
             Console.WriteLine(unsorted[0]);
 
-            //test two, to see if the array has been sorted. 
+            List<string> sorted = unsorted.OrderBy(x => x).ToList(); //sorts the list into alphabetical order.
 
+
+            //test two, to see if the array has been sorted. 
+            Console.WriteLine(sorted[0]);
+
+
+            for (int i = 0; i < sorted[0].Length; i++)
+            {
+
+            }
         }
     }
 }
